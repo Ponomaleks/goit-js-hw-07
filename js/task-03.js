@@ -56,3 +56,6 @@ const styleSheet = document.createElement('style')
 styleSheet.textContent = ".list {list-style: none; display: flex; margin-left: -30px} .gallery-elem {margin-left: 30px} .gallery-img {max-width: 100%}"
 
 stylesRef.append(styleSheet.textContent)
+
+
+// ================= Альтернативно стили можно подключить через css таблицу стилей  ====================

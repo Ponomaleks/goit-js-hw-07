@@ -3,3 +3,12 @@
 
 // <input type="text" placeholder="Ваше имя?" id="name-input" />
 // <h1>Привет, <span id="name-output">незнакомец</span>!</h1>
+
+
+const inputEl = document.querySelector('input');
+const nameEl = document.getElementById('name-output')
+
+
+function onInputEnter() { if (inputEl.value !== '') { nameEl.textContent = event.currentTarget.value } else nameEl.textContent = "незнакомец"}
+
+inputEl.addEventListener('input', onInputEnter)

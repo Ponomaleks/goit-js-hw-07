@@ -39,3 +39,20 @@ const images = [
     alt: 'Group of Horses Running',
   },
 ];
+
+
+const galleryListRef = document.getElementById('gallery')
+
+const imagesList = images.map(({url, alt}) => {return `<li class="gallery-elem"><img class="gallery-img" src="${url}" alt="${alt}"></li>`})
+
+console.log(images)
+galleryListRef.insertAdjacentHTML("afterbegin", imagesList.join(''));
+
+galleryListRef.classList.add("list", "gallery");
+
+// ================= добавление стилей в тег style ====================
+const stylesRef = document.querySelector('style')
+const styleSheet = document.createElement('style')
+styleSheet.textContent = ".list {list-style: none; display: flex; margin-left: -30px} .gallery-elem {margin-left: 30px} .gallery-img {max-width: 100%}"
+
+stylesRef.append(styleSheet.textContent)

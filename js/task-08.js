@@ -17,3 +17,33 @@
 // </div>
 
 // <div id="boxes"></div>
+const inputRef = document.querySelector('input[type="number"]')
+const createBtnRef = document.querySelector('button[data-action="render"]')
+const clearBtnRef = document.querySelector('button[data-action="destroy"]')
+const boxesContainerRef = document.getElementById('boxes')
+
+createBtnRef.addEventListener('click', createBoxes)
+clearBtnRef.addEventListener('click', destroyBoxes);
+
+function createBoxes() {
+    const arrByInputLength = [];
+    arrByInputLength.length = inputRef.value;
+    let tempSizeValue = 30;
+    
+    const boxesEl = [...arrByInputLength].reduce((arr) => {
+    const boxEl = document.createElement('div');
+    boxEl.style.width = `${tempSizeValue}px`;
+    boxEl.style.height = `${tempSizeValue}px`;
+    boxEl.style.backgroundColor = '#' + (Math.random().toString(16)).substring(2,8);
+    tempSizeValue += 10;
+    return [...arr, boxEl]
+}, [])
+
+boxesContainerRef.append(...boxesEl)
+};
+
+
+function destroyBoxes() {
+    boxesContainerRef.innerHTML = '';
+    inputRef.value = '';
+}
